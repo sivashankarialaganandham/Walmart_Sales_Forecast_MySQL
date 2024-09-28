@@ -304,4 +304,4 @@ ORDER BY avg_rating desc;
 ```
 
 ## Code
-For the complete code, kindly check out the []()file.
+For the complete code, kindly check out the [Walmart Sales Data.sql]()file.
