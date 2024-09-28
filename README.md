@@ -49,7 +49,7 @@ SELECT
 FROM sales;
 ```
 
-### 2. In which city is each branch?
+### 2. Which city is in each branch?
 ```sql
 SELECT 
 	distinct branch
@@ -173,3 +173,135 @@ ORDER BY avg_rating desc;
 ```
 
 ## Sales Questions and Solutions
+
+### 1. Number of sales made in each time of the day per weekday
+```sql
+SELECT
+	time_of_day,
+    count(*) as total_sales
+FROM sales
+-- WHERE day_name = 'Monday'
+GROUP BY time_of_day
+ORDER BY total_sales desc;
+```
+
+### 2. Which of the customer types brings the most revenue?
+```sql
+SELECT
+	customer_type,
+    sum(total) AS total_revenue
+FROM sales
+GROUP BY customer_type
+ORDER BY total_revenue desc;
+```
+
+### 3. Which city has the largest tax percent/ VAT (Value Added Tax)?
+```sql
+SELECT
+	city,
+    avg(VAT) as VAT
+FROM sales
+GROUP BY city
+ORDER BY VAT desc;
+```
+
+### 4. Which customer type pays the most in VAT?
+```sql
+SELECT
+	customer_type,
+    avg(VAT) as VAT
+FROM sales
+GROUP BY customer_type
+ORDER BY VAT desc;
+```
+
+## Customer Questions and Solutions
+
+### 1. How many unique customer types does the data have?
+```sql
+SELECT 
+	DISTINCT customer_type
+FROM sales;
+```
+
+### 2. How many unique payment methods does the data have?
+```sql
+SELECT 
+	DISTINCT payment_method
+FROM sales;
+```
+
+### 3. Which customer type buys the most?
+```sql
+SELECT
+    customer_type,
+    count(*) as customer_count
+FROM sales
+GROUP BY customer_type;
+```
+
+### 4. What is the gender of most of the customers?
+```sql
+SELECT
+	gender,
+    COUNT(*) as gender_count
+FROM sales
+GROUP BY gender
+ORDER BY gender_count desc;
+```
+
+### 5. What is the gender distribution per branch?
+```sql
+SELECT
+	gender,
+    COUNT(*) as gender_count
+FROM sales
+WHERE branch = "A"
+GROUP BY gender
+ORDER BY gender_count desc;
+```
+
+### 6. Which time of the day do customers give most ratings?
+```sql
+SELECT 
+	time_of_day,
+    AVG(rating) as avg_rating
+FROM sales
+GROUP BY time_of_day
+ORDER BY avg_rating desc;
+```
+
+### 7. Which time of the day do customers give most ratings per branch?
+```sql
+SELECT 
+	time_of_day,
+    AVG(rating) as avg_rating
+FROM sales
+WHERE branch = "A"
+GROUP BY time_of_day
+ORDER BY avg_rating desc;
+```
+
+### 8. Which day fo the week has the best avg ratings?
+```sql
+SELECT
+	day_name,
+    AVG(rating) as avg_rating
+FROM sales
+GROUP BY day_name
+ORDER BY avg_rating desc;
+```
+
+### 9. Which day of the week has the best average ratings per branch?
+```sql
+SELECT
+	day_name,
+    AVG(rating) as avg_rating
+FROM sales
+WHERE branch = "C"
+GROUP BY day_name
+ORDER BY avg_rating desc;
+```
+
+## Code
+For the complete code, kindly check out the []()file.
