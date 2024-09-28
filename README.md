@@ -304,4 +304,4 @@ ORDER BY avg_rating desc;
 ```
 
 ## Code
-For the complete code, kindly check out the [Walmart Sales Data.sql]()file.
+For the complete code, kindly check out the [Walmart Sales Data.sql](https://github.com/sivashankarialaganandham/Walmart_Sales_Forecast_MySQL/blob/main/Walmart%20Sales%20Data.sql)file.
