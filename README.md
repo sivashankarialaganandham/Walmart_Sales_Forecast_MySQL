@@ -303,5 +303,10 @@ GROUP BY day_name
 ORDER BY avg_rating desc;
 ```
 
+## Conclusion
+- The Walmart sales analysis provided valuable insights into branch and product performance, revealing opportunities to refine sales strategies. 
+- By understanding sales trends and customer behavior, the business can focus on improving underperforming product lines, optimizing sales strategies, and catering to high-value customer segments. 
+- This data-driven approach will support more informed decision-making and ultimately drive higher sales and customer satisfaction.
+
 ## Code
-For the complete code, kindly check out the [Walmart Sales Data.sql](https://github.com/sivashankarialaganandham/Walmart_Sales_Forecast_MySQL/blob/main/Walmart%20Sales%20Data.sql)file.
+For the complete code, kindly check out the [Walmart Sales Data.sql](https://github.com/sivashankarialaganandham/Walmart_Sales_Forecast_MySQL/blob/main/Walmart%20Sales%20Data.sql) file.
