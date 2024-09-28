@@ -48,3 +48,128 @@ SELECT
 	distinct city
 FROM sales;
 ```
+
+### 2. In which city is each branch?
+```sql
+SELECT 
+	distinct branch
+FROM sales;
+
+SELECT 
+	distinct city,
+    branch
+FROM sales;
+```
+
+## Product Questions and Solutions
+
+### 1. How many unique product lines does the data have?
+```sql
+SELECT
+	count(distinct product_line)
+FROM sales;
+```
+
+### 2. What is the most common payment method?
+```sql
+SELECT
+	payment_method,
+	count(payment_method) AS cnt
+FROM sales
+GROUP BY payment_method
+ORDER BY cnt desc;
+```
+
+### 3. What is the most selling product line?
+```sql
+SELECT
+	product_line,
+	count(product_line) AS cnt
+FROM sales
+GROUP BY product_line
+ORDER BY cnt desc;
+```
+
+### 4. What is the total revenue by month?
+```sql
+SELECT
+	month_name as month,
+    SUM(total) as total_revenue
+FROM sales
+GROUP BY month_name
+ORDER BY total_revenue desc;
+```
+
+### 5. What month had the largest COGS?
+```sql
+SELECT
+	month_name as MONTH,
+    sum(cogs) as cogs
+FROM sales
+GROUP BY month_name
+ORDER BY cogs desc;
+```
+
+### 6. What product line had the largest revenue?
+```sql
+SELECT
+	product_line,
+    sum(total) as total_revenue
+FROM sales
+GROUP BY product_line
+ORDER BY total_revenue desc;
+```
+
+### 7. What is the city with the largest revenue?
+```sql
+SELECT
+	branch,
+	city,
+    sum(total) as total_revenue
+FROM sales
+GROUP BY city, branch
+ORDER BY total_revenue desc;
+```
+
+### 8. What product line had the largest VAT?
+```sql
+SELECT
+	product_line,
+    avg(VAT) as avg_tax
+FROM sales
+GROUP BY product_line
+ORDER BY avg_tax desc;
+```
+
+### 9. Which branch sold more products than average product sold?
+```sql
+SELECT 
+	branch,
+    SUM(quantity) as QTY
+FROM sales
+GROUP BY branch
+HAVING sum(quantity) > (SELECT AVG(quantity) FROM sales);
+```
+
+### 10. What is the most common product line by gender?
+```sql
+SELECT
+	gender,
+    product_line,
+    count(gender) as total_cnt
+FROM sales
+GROUP BY gender, product_line
+ORDER BY totaL_cnt desc;
+```
+
+### 11: What is the average rating of each product line?
+```sql
+SELECT
+	round(avg(rating), 2) as avg_rating,
+    product_line 
+FROM sales
+GROUP BY product_line
+ORDER BY avg_rating desc;
+```
+
+## Sales Questions and Solutions
