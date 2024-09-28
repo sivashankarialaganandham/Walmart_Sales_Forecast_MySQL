@@ -1,1 +1,1 @@
-# Walmart_Sales_Forecast_MySQL
+# Walmart Sales Forecasting Data Analysis using MySQL
